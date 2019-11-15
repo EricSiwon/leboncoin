@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -16,10 +16,9 @@ function App() {
   const [count, setCount] = useState(0);
 
   const fetchContents = async () => {
+    let Url = "https://leboncoin-api.herokuapp.com/api/offer/with-count";
     try {
-      const response = await axios.get(
-        "https://leboncoin-api.herokuapp.com/api/offer/with-count"
-      );
+      const response = await axios.get(Url);
       setContents(response.data.offers);
       setCount(response.data.count);
       setIsLoading(false);
@@ -33,7 +32,7 @@ function App() {
   }, []);
 
   if (isLoading === false) {
-    console.log("App", contents);
+    console.log("App contents : ", contents);
   }
 
   return (
@@ -43,7 +42,7 @@ function App() {
       </div>
       <Switch>
         <Route path="/offer/:id">
-          <Offer contents={contents} />
+          <Offer />
         </Route>
         {/* <Route path="/article">
           <Article />

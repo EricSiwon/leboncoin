@@ -1,32 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
-const Offer = ({ contents }) => {
-  const obj = useParams();
-  //boucle pour rechercher article.
-  return (
-    <div className="contents">
-      <div className="wrapper">
-        <div className="product">
-          <div className="product-1">
-            <img src="" className="img-size-2" />
-            <div className="product-1-1">
-              <h4>{obj.id}</h4>
-              <h5>8888888 €</h5>
-              <div>Date vetbrzbrbrbrzbr</div>
+const Offer = () => {
+  let { id } = useParams();
+  console.log("Offer 1:", id);
+  const [content, setContent] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCOffer = async () => {
+      console.log("Start fetchCOffer :", id);
+      let Url = "https://leboncoin-api.herokuapp.com/api/offer/" + id;
+      try {
+        const response = await axios.get(Url);
+        setContent(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    fetchCOffer();
+  }, [id]);
+
+  if (isLoading === false) {
+    // if (content === "") {
+    console.log(
+      "Offer 2",
+      // isLoading,
+      id,
+      content,
+      content.pictures[0],
+      content.creator.account.username
+    );
+
+    return (
+      <div className="contents">
+        <div className="wrapper">
+          <div className="product">
+            <div className="product-1">
+              <img src={content.pictures[1]} alt="" className="img-size-2" />
+              <div className="product-1-1">
+                <h4>{content.title}</h4>
+                <h5>{content.price} €</h5>
+                <div>{content.created}</div>
+              </div>
+              <div>Description</div>
+              <div>{content.description}}</div>
             </div>
-            <div>Description</div>
-            <div>zflmchpru hpe ugehoej heo e</div>
-          </div>
-          <div className="product-2">
-            <div>nom</div>
-            <div>blablabla</div>
-            <div>Acheter</div>
+            <div className="product-2">
+              <div>{content.creator.account.username}</div>
+              <div>blablabla</div>
+              <div>Acheter</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Offer;

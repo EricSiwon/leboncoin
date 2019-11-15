@@ -108,6 +108,10 @@
 }
 
 .product-1 {
+  border: 1px solid red;
+  display: flex 1;
+  flex-direction: column;
+  align-content: center;
 }
 
 .product-1-1 {
