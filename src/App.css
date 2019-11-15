@@ -1,22 +1,140 @@
-.App {
+.header {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+.header-1 {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
+}
+
+.header-1-2 {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  background: #f56b2a;
+  height: 40px;
+  margin: 0 10px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.header-1-2 span {
+  padding-left: 2px;
+}
+
+.header-1-3 {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.header-2 {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  margin-right: 10%;
+}
+
+.header-2-1 {
+  /* border: 1px solid red; */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.header-2-1 h5 {
+  /* border: 1px solid red; */
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.logo {
+  /* border: 1px solid red; */
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.Hero-1 {
+  /* border: 1px solid red; */
+  height: 100px;
+  background: #f56b2a;
+  border-radius: 0 0 600px 600px/0 0 50px 50px;
+  /* border-radius: 0 0 600px 600px/0 0 100px 100px; */
+}
+.Hero-2 {
+  /* border: 1px solid red; */
+  height: 100px;
+  /* background: #f56b2a;
+  border-radius: 0 0 600px 600px/40px 40px 75px 75px; */
+}
+
+.contents {
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.wrapper {
+  border: 1px solid red;
+  width: 1000px;
+}
+
+.products {
+  /* border: 1px solid red; */
+  height: 180px;
+  display: flex;
+}
+
+.products link {
+  display: flex;
+}
+
+.img-size-1 {
+  height: 180px;
+  width: 240px;
+  object-fit: contain;
+  background-color: #cad1d9;
+}
+
+.product {
+  /* border: 1px solid red; */
+  display: flex;
+}
+
+.product-1 {
+}
+
+.product-1-1 {
+  border: 1px solid red;
+  height: 200px;
+}
+
+.product-2 {
+  border: 1px solid red;
+  width: 279px;
+  height: 195px;
+}
+
+.img-size-2 {
+  height: 400px;
+  width: 700px;
+  object-fit: contain;
+  background-color: #cad1d9;
+}
+
+.footer {
+  /* border: 1px solid green; */
+  height: 60px;
+  background: #474747;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: #cad1d9;
 }

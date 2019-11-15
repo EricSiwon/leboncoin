@@ -1,25 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import axios from "axios";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+import Home from "./containers/Home";
+import Offer from "./containers/Offer";
+// import Article from "./containers/Article";
+
+import "./App.css";
 
 function App() {
+  const [contents, setContents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [count, setCount] = useState(0);
+
+  const fetchContents = async () => {
+    try {
+      const response = await axios.get(
+        "https://leboncoin-api.herokuapp.com/api/offer/with-count"
+      );
+      setContents(response.data.offers);
+      setCount(response.data.count);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+
+  useEffect(() => {
+    fetchContents();
+  }, []);
+
+  if (isLoading === false) {
+    console.log("App", contents);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="top-page">
+        <Header />
+      </div>
+      <Switch>
+        <Route path="/offer/:id">
+          <Offer contents={contents} />
+        </Route>
+        {/* <Route path="/article">
+          <Article />
+        </Route> */}
+        <Route path="/">
+          <Hero />
+          <Home contents={contents} count={count} />
+        </Route>
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 
