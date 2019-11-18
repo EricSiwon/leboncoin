@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import Logo from "../images/Logo.svg";
 import PlusSquare from "../components/PlusSquare";
 
-const Header = () => {
+const Header = props => {
+  console.log("Header", props);
   return (
     <header className="header">
       <div className="header-1">
@@ -23,6 +24,7 @@ const Header = () => {
           <span>Recherche</span>
         </div>
       </div>
+
       <div className="header-2">
         <div className="header-2-1">
           <svg
@@ -33,7 +35,23 @@ const Header = () => {
           >
             <path d="M12 12a5.92 5.92 0 005.86-6A5.93 5.93 0 0012 0a5.93 5.93 0 00-5.86 6A5.92 5.92 0 0012 12zm0-9a3 3 0 11-2.93 3A3 3 0 0112 3zM22.46 22.13a10.68 10.68 0 00-10.46-8 10.68 10.68 0 00-10.46 8A1.5 1.5 0 002.61 24a1.46 1.46 0 001.78-1.08A7.72 7.72 0 0112 17.09a7.72 7.72 0 017.61 5.78A1.48 1.48 0 0021 24a1.12 1.12 0 00.36-.05 1.5 1.5 0 001.1-1.82z"></path>
           </svg>
-          <h5>Se connecter</h5>
+          {props.user ? (
+            <h5
+              onClick={() => {
+                props.logOut();
+              }}
+            >
+              Se deconnecter {props.user}
+            </h5>
+          ) : (
+            <h5
+              onClick={() => {
+                props.setShowModal(true);
+              }}
+            >
+              Se connecter
+            </h5>
+          )}
         </div>
       </div>
     </header>

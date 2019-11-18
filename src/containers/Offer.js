@@ -43,10 +43,20 @@ const Offer = () => {
               <div className="product-1-1">
                 <h4>{content.title}</h4>
                 <h5>{content.price} €</h5>
-                <div>{content.created}</div>
+                <div>
+                  {new Date(content.created).toLocaleDateString("fr-FR", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit"
+                  })}
+                </div>
               </div>
               <div>Description</div>
-              <div>{content.description}}</div>
+              <div>{content.description}</div>
             </div>
             <div className="product-2">
               <div>{content.creator.account.username}</div>

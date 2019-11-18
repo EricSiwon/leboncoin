@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   height: 60px;
+
 }
 
 .header-1 {
@@ -59,20 +60,20 @@
 
 .Hero-1 {
   /* border: 1px solid red; */
-  height: 100px;
+  height: 70px;
   background: #f56b2a;
   border-radius: 0 0 600px 600px/0 0 50px 50px;
   /* border-radius: 0 0 600px 600px/0 0 100px 100px; */
 }
 .Hero-2 {
   /* border: 1px solid red; */
-  height: 100px;
+  height: 20px;
   /* background: #f56b2a;
   border-radius: 0 0 600px 600px/40px 40px 75px 75px; */
 }
 
 .contents {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -81,12 +82,15 @@
 }
 
 .wrapper {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 1000px;
 }
 
 .products {
   /* border: 1px solid red; */
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid gray;
   height: 180px;
   display: flex;
 }
