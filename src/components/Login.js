@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+
 import "../Login.css";
 
 const ModalLogin = props => {
   const [eMail, setEmail] = useState("");
   const [passWord, setPassWord] = useState("");
-  const [isLogin, setIsLogin] = useState(false);
+  //   const [isLogin, setIsLogin] = useState(false);
+
+  // const [showRegister, setRegister] = useState(false);
 
   const fetchLoginUser = async () => {
     console.log("fetchLoginUser 1");
@@ -30,7 +34,10 @@ const ModalLogin = props => {
       props.logIn(response.data);
       props.setShowModal(false);
     } catch (error) {
-      console.log(error.response);
+      console.log("catch",error);
+      console.log("catch",error.response);
+      console.log("catch",error.response.data);
+      alert(`Status :${error.response.status}\n Text :${error.response.statusText}\n Message:${error.response.data.error}`)
     }
   };
 
@@ -66,7 +73,19 @@ const ModalLogin = props => {
       </form>
       <h4>
         <strong>Vous n'avez pas de compte</strong>
-        <div className="login-button">Creer un compte</div>
+        {/* /sign_up */}
+        <Link to={"/sign_up"}>
+          <div
+            className="login-button"
+            onClick={() => {
+              // setRegister(true);
+              props.setShowModal(false);
+            }}
+          >
+            Creer un compte
+          </div>
+        </Link>
+
         <div
           className="login-button"
           onClick={() => {

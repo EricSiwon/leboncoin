@@ -1,16 +1,14 @@
-.modal1{
-  position: absolute;
-  height: 100vh;
+.modal2 {
+  height: calc(100vh - 120px);
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(238, 228, 228, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.login {
+.register {
   border: 1px solid red;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: blanchedalmond;
   display: flex;
   flex-direction: column;
