@@ -3,6 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../Register.css";
 import { useHistory } from "react-router-dom";
+import PasswordStrengthBar from "react-password-strength-bar";
+// import { red } from "@material-ui/core/colors";
+// import { fontSize } from "@material-ui/system";
 
 const Register = props => {
   const [pseudo, setPseudo] = useState("");
@@ -21,10 +24,10 @@ const Register = props => {
     //   "username": "Farid",
     //   "password": "azerty"
     // }
-    let Url = " https://leboncoin-api.herokuapp.com/api/user/sign_up";
+    let Url = "http://localhost:4000/user/sign_up";
     try {
       const response = await axios.post(Url, {
-        // username: pseudo,
+        username: pseudo,
         email: eMail,
         password: passWord1
       });
@@ -50,9 +53,11 @@ const Register = props => {
       // setRegister(true);
       history.push("/");
     } catch (error) {
-      console.log("catch",error);
-      console.log("catch",error.response);
-      alert(`Status :${error.response.status}\n Text :${error.response.statusText}\n Message:${error.response.data.error}`)
+      console.log("catch", error);
+      console.log("catch", error.response);
+      alert(
+        `Status :${error.response.status}\n Text :${error.response.statusText}\n Message:${error.response.data.error}`
+      );
     }
   };
 
@@ -94,6 +99,15 @@ const Register = props => {
               setPassWord1(event.target.value);
             }}
           />
+          <PasswordStrengthBar
+            password={passWord1}
+            // style={{ fontSize: 24 }}
+            // scoreWordStyle="login-password"
+            // scoreWordClassName="login-password-word"
+            // className="login-password"
+            shortScoreWord="Cours"
+            scoreWords={["Faible", "Faible", "Moyen", "Bien", "Fort"]}
+          />
           <h6>Confirmer le mot de passe</h6>
           <input
             placeholder="Mot de passe"
@@ -103,16 +117,18 @@ const Register = props => {
               setPassWord2(event.target.value);
             }}
           />
+          <PasswordStrengthBar
+            password={passWord2}
+            // className="login-password"
+            shortScoreWord="Cours"
+            scoreWords={["Faible", "Faible", "Moyen", "Bien", "Fort"]}
+          />
           <br></br>
           <input type="submit" value="Creer mon compte personnel" />
         </form>
         <h4>
           <Link to={"/"}>
-            <div
-              className="login-button"
-            >
-              Cancel
-            </div>
+            <div className="login-button">Cancel</div>
           </Link>
         </h4>
       </div>

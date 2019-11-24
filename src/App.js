@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import ModalLogin from "./components/Login";
 import Register from "./components/Register";
 import Search from "./components/Search";
+import Publish from "./components/Publish";
 //
 import Home from "./containers/Home";
 import Offer from "./containers/Offer";
@@ -31,7 +32,7 @@ function App() {
 
   // Chargement
   const fetchContents = async () => {
-    let Url = "https://leboncoin-api.herokuapp.com/api/offer/with-count";
+    let Url = "https://localhost:4000/api/offer/with-count";
     console.log("fetchContents", Url);
     try {
       const response = await axios.get(Url);
@@ -103,6 +104,9 @@ function App() {
         </Route>
         <Route path="/offer/:id">
           <Offer />
+        </Route>
+        <Route path="/publish">
+          <Publish />
         </Route>
         <Route path="/search">
           <Search setContents={setContents} setCount={setCount} />

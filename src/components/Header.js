@@ -10,7 +10,7 @@ const Header = props => {
     <header className="header">
       <div className="header-1">
         <div>
-          <Link to={"/"}>
+          <Link to="/">
             <img
               alt="logo"
               src={Logo}
@@ -20,16 +20,18 @@ const Header = props => {
             />
           </Link>
         </div>
-        <div className="header-1-2">
-          {/* <PlusSquare /> */}
-          <AddBox />
-          <span>Déposer une annonce</span>
-        </div>
+        <Link to="/publish">
+          <div className="header-1-2">
+            <AddBox />
+            <span>Déposer une annonce</span>
+          </div>
+        </Link>
+
         <div className="header-1-3">
           <svg viewBox="0 0 24 24" width="28" height="28">
             <path d="M23.58 21.45l-7-7a9.42 9.42 0 001.62-6.87A9.13 9.13 0 0010.34.07a9.25 9.25 0 00-2.81 18.27 9.25 9.25 0 007-1.76l7 7a1.54 1.54 0 002.11 0 1.56 1.56 0 00-.06-2.13zM9.22 15.5a6.37 6.37 0 116.33-6.37 6.33 6.33 0 01-6.33 6.37z"></path>
           </svg>
-          <Link to={"/search"}>
+          <Link to="/search">
             <span>Recherche</span>
           </Link>
         </div>

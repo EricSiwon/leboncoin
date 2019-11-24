@@ -30,3 +30,14 @@ form h6 {
   border: 1px solid grey;
   line-height: 20px;
 }
+
+.login-password {
+  background-color: #422222;
+  /* font-size: 8px; */
+  /* color: white; */
+  /* text-align: center; */
+}
+
+/* .login-password-word {
+
+} */

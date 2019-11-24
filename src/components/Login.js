@@ -7,7 +7,6 @@ import "../Login.css";
 const ModalLogin = props => {
   const [eMail, setEmail] = useState("");
   const [passWord, setPassWord] = useState("");
-  //   const [isLogin, setIsLogin] = useState(false);
 
   // const [showRegister, setRegister] = useState(false);
 
@@ -17,7 +16,7 @@ const ModalLogin = props => {
     //     "email": "farid@lereacteur.io",
     //     "password": "azerty"
     //   }
-    let Url = "https://leboncoin-api.herokuapp.com/api/user/log_in";
+    let Url = "http://localhost:4000/user/login";
     try {
       const response = await axios.post(Url, {
         email: eMail,
@@ -34,10 +33,12 @@ const ModalLogin = props => {
       props.logIn(response.data);
       props.setShowModal(false);
     } catch (error) {
-      console.log("catch",error);
-      console.log("catch",error.response);
-      console.log("catch",error.response.data);
-      alert(`Status :${error.response.status}\n Text :${error.response.statusText}\n Message:${error.response.data.error}`)
+      console.log("catch", error);
+      console.log("catch", error.response);
+      console.log("catch", error.response.data);
+      alert(
+        `Status :${error.response.status}\n Text :${error.response.statusText}\n Message:${error.response.data.error}`
+      );
     }
   };
 
@@ -69,6 +70,7 @@ const ModalLogin = props => {
             setPassWord(event.target.value);
           }}
         />
+
         <input type="submit" value="Se connecter" />
       </form>
       <h4>

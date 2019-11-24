@@ -9,7 +9,7 @@ const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchCOffer = async () => {
+    const fetchOffer = async () => {
       console.log("Start fetchCOffer :", id);
       let Url = "https://leboncoin-api.herokuapp.com/api/offer/" + id;
       try {
@@ -20,7 +20,7 @@ const Offer = () => {
         console.log(error.response);
       }
     };
-    fetchCOffer();
+    fetchOffer();
   }, [id]);
 
   if (isLoading === false) {
@@ -39,7 +39,7 @@ const Offer = () => {
         <div className="wrapper">
           <div className="product">
             <div className="product-1">
-              <img src={content.pictures[1]} alt="" className="img-size-2" />
+              <img src={content.pictures[0]} alt="" className="img-size-2" />
               <div className="product-1-1">
                 <h4>{content.title}</h4>
                 <h5>{content.price} €</h5>
