@@ -24,7 +24,7 @@ const Register = props => {
     //   "username": "Farid",
     //   "password": "azerty"
     // }
-    let Url = "http://localhost:4000/user/sign_up";
+    let Url = "http://localhost:4000/user/signup";
     try {
       const response = await axios.post(Url, {
         username: pseudo,

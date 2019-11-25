@@ -15,13 +15,14 @@ const Publish = () => {
   const history = useHistory();
 
   const fetchPublish = async (data, header_http) => {
+    console.log("fetchPublish=>");
     let url = "http://localhost:4000/publish";
     try {
       const response = await axios.post(url, data, header_http);
       console.log("fetchPublish=>", response.data);
       history.push("/");
     } catch (error) {
-      console.log("fetchPublish ERR", error.response);
+      console.log("fetchPublish ==> ERR", error.response);
       // alert(
       //   `Status :${error.response.status}\n Text :${error.response.statusText}\n Message:${error.response.data.error}`
       // );
